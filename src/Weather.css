@@ -19,6 +19,12 @@
   font-weight: bold;
   font-size: 20px;
 }
-.Weather img {
-  margin-right: 10px;
+
+.Weather .units {
+  color: rgb(33, 33, 33);
+  font-size: 16px;
+  font-weight: 400;
+  position: relative;
+  line-height: 1;
+  text-decoration: none;
 }
