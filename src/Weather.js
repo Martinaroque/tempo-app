@@ -3,14 +3,21 @@ import "./Weather.css";
 import axios from "axios";
 
 export default function Weather() {
-  let [ready, setReady] = useState(false);
-  let [temperature, setTemperature] = useState(null);
+  let [weatherData, setWeatherData] = useState({ ready: false });
+
   function showTemperature(response) {
-    setTemperature(Math.round(response.data.main.temp));
-    setReady(true);
+    setWeatherData({
+      ready: true,
+      temperature: Math.round(response.data.main.temp),
+      city: response.data.name,
+      wind: response.data.wind.speed,
+      humidity: response.data.main.humidity,
+      iconUrl: `https://ssl.gstatic.com/onebox/weather/64/sunny.png`,
+      description: response.data.weather[0].description,
+    });
   }
 
-  if (ready) {
+  if (weatherData.ready) {
     return (
       <div className="Weather">
         <h1 className="header">Type a city</h1>
@@ -36,22 +43,19 @@ export default function Weather() {
 
         <ul>
           <li>sunday : 07:00</li>
-          <li>Cloudy</li>
+          <li className="text-capitalize">{weatherData.description}</li>
         </ul>
         <div className="row">
           <div className="col-6">
-            <img
-              src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
-              alt="sunny"
-            />
-            <span className="temperature">{temperature}</span>
+            <img src={weatherData.iconUrl} alt="sunny" />
+            <span className="temperature">{weatherData.temperature}</span>
             <span className="units">ºC</span>
           </div>
           <div className="col-6">
             <ul>
-              <li>Percipitations</li>
-              <li>Humidity</li>
-              <li>Wind</li>
+              <li>Percipitations:</li>
+              <li>Humidity:{weatherData.humidity}</li>
+              <li>Wind:{weatherData.wind} km/h</li>
             </ul>
           </div>
         </div>
