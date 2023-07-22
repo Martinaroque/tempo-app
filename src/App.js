@@ -8,7 +8,7 @@ function App() {
 
       <footer>
         This project was coded by{" "}
-        <a href="#" target="_blank" rel="noopener noreferrer">
+        <a href="/" target="_blank" rel="noopener noreferrer">
           Martina Roque
         </a>{" "}
         and is{" "}
