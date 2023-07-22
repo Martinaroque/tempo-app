@@ -7,8 +7,16 @@ function App() {
       <Weather city="lisbon" />
 
       <footer>
-        This project was coded by <a href="#">Martina Roque</a> and is{" "}
-        <a href="https://github.com/Martinaroque" targer="_blank">
+        This project was coded by{" "}
+        <a href="#" target="_blank" rel="noopener noreferrer">
+          Martina Roque
+        </a>{" "}
+        and is{" "}
+        <a
+          href="https://github.com/Martinaroque"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           {" "}
           open-sourced on GitHub
         </a>
